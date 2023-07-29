@@ -1,0 +1,32 @@
+{
+  "name": "counter",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "pretest": "npx scrypt-cli compile",
+    "build:contract": "npx scrypt-cli compile",
+    "deploy:contract": "npx ts-node ./scripts/deploy.ts",
+    "verify:contract": "npx scrypt-cli verify $(cat .scriptHash) ./src/contracts/counter.ts",
+    "genprivkey": "npx ts-node ./scripts/privateKey.ts"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/kit": "^1.20.4",
+    "dotenv": "^10.0.0",
+    "svelte": "^4.0.5",
+    "svelte-check": "^3.4.3",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "vite": "^4.4.2",
+    "vite-plugin-node-polyfills": "^0.9.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "scrypt-ts": "^1.2.1"
+  }
+}
